@@ -11,11 +11,13 @@ compileJava{
 }
 
 repositories {
-    jcenter()
     mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 jacocoTestReport {
+	description 'test reports from jacoco'
     reports {
         xml.enabled = true // coveralls plugin depends on xml format report
         html.enabled = true
@@ -23,6 +25,6 @@ jacocoTestReport {
 }
 
 dependencies {
-
+	compile 'com.github.scompo:utils:master-SNAPSHOT'
     testCompile 'junit:junit:4.12'
 }
