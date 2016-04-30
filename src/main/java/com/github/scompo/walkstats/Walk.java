@@ -7,17 +7,17 @@ import com.github.scompo.utils.names.Named;
 
 public class Walk implements Timed, Named {
 
-	public static Walk createWalk(Collection<Position> positions, Instant time,
-			String name) {
-
-		return new Walk(positions, time, name);
-	}
-
 	private final Collection<Position> positions;
 
 	private final Instant time;
 
 	private final String name;
+	
+	public static Walk createWalk(Collection<Position> positions, Instant time,
+			String name) {
+
+		return new Walk(positions, time, name);
+	}
 
 	private Walk(Collection<Position> positions, Instant time, String name) {
 
