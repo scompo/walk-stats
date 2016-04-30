@@ -64,6 +64,6 @@ public class CompareToBigDecimalMatcherTest {
 	@Test
 	public void testMatchesWithExpectedNotNullAndItemNull() {
 
-		assertFalse(compareToExpected(BigDecimal.ZERO).matches(null));
+		assertFalse(compareToExpected(ZERO).matches(null));
 	}
 }
