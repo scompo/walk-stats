@@ -1,5 +1,5 @@
 package com.github.scompo.walkstats;
 
-public class Application {
+public interface Repository<T, ID> {
 
 }
