@@ -1,5 +1,6 @@
 package com.github.scompo.walkstats;
 
+import static com.github.scompo.walkstats.DegreesConstants.*;
 import java.math.BigDecimal;
 
 public class Longitude implements Measurement<BigDecimal>{
@@ -20,7 +21,7 @@ public class Longitude implements Measurement<BigDecimal>{
 	@Override
 	public String getUnit() {
 		
-		return "°";
+		return DEGREES_SYMBOL;
 	}
 	
 }

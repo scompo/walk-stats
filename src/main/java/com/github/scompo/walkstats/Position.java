@@ -4,12 +4,6 @@ import java.time.Instant;
 
 public class Position implements Timed {
 
-	public static Position createPosition(Latitude latitude,
-			Longitude longitude, Altitude altitude, Instant time) {
-		
-		return new Position(latitude, longitude, altitude, time);
-	}
-
 	private final Latitude latitude;
 
 	private final Longitude longitude;
@@ -17,6 +11,12 @@ public class Position implements Timed {
 	private final Altitude altitude;
 
 	private final Instant time;
+	
+	public static Position createPosition(Latitude latitude,
+			Longitude longitude, Altitude altitude, Instant time) {
+		
+		return new Position(latitude, longitude, altitude, time);
+	}
 
 	private Position(Latitude latitude, Longitude longitude, Altitude altitude,
 			Instant time) {

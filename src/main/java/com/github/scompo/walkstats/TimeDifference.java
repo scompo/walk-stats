@@ -8,6 +8,7 @@ import java.time.temporal.ChronoUnit;
 public class TimeDifference implements Measurement<BigDecimal> {
 
 	private final Instant start;
+	
 	private final Instant end;
 
 	public TimeDifference(Instant start, Instant end) {
