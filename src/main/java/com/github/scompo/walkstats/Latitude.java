@@ -1,6 +1,7 @@
 package com.github.scompo.walkstats;
 
-import static com.github.scompo.walkstats.DegreesConstants.*;
+import static com.github.scompo.walkstats.DegreesConstants.DEGREES_SYMBOL;
+
 import java.math.BigDecimal;
 
 public class Latitude implements Measurement<BigDecimal> {
