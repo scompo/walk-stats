@@ -3,7 +3,7 @@ package com.github.scompo.walkstats;
 /**
  * Position API definition.
  */
-public interface Position {
+public interface Position extends Timed{
 
 	/**
 	 * Returns the {@link Longitude} of a position.

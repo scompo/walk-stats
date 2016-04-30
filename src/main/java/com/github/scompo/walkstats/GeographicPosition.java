@@ -2,7 +2,7 @@ package com.github.scompo.walkstats;
 
 import java.time.Instant;
 
-public class GeographicPosition implements Position, Timed {
+public class GeographicPosition implements Position {
 
 	private final Latitude latitude;
 
