@@ -12,7 +12,8 @@ import org.hamcrest.Matcher;
  * {@link Matcher} for {@link BigDecimal} based on the
  * {@link BigDecimal#compareTo(BigDecimal)} method. As by the API documentation
  * {@link BigDecimal#compareTo(BigDecimal)} compares two {@link BigDecimal}
- * ignoring the scale. For my purposes this is the correct behavior.
+ * ignoring the scale. For my purposes this is the correct behavior. This class
+ * is <code>null</code> safe
  */
 public class CompareToBigDecimalMatcher extends BaseMatcher<BigDecimal>
 		implements
@@ -23,7 +24,7 @@ public class CompareToBigDecimalMatcher extends BaseMatcher<BigDecimal>
 	/**
 	 * Creates a new {@link CompareToBigDecimalMatcher} with the expected
 	 * result. It will make sure that <code>expected.compareTo(item) == 0</code>
-	 * . It's <code>null</code> safe.
+	 * .
 	 * 
 	 * @param expected
 	 *            the expected result.
@@ -31,7 +32,8 @@ public class CompareToBigDecimalMatcher extends BaseMatcher<BigDecimal>
 	 * @return a new {@link CompareToBigDecimalMatcher} that expects the passed
 	 *         result.
 	 */
-	public static CompareToBigDecimalMatcher compareToExpected(BigDecimal expected) {
+	public static CompareToBigDecimalMatcher compareToExpected(
+			BigDecimal expected) {
 
 		return new CompareToBigDecimalMatcher(expected);
 	}
@@ -44,34 +46,26 @@ public class CompareToBigDecimalMatcher extends BaseMatcher<BigDecimal>
 	@Override
 	public void describeTo(Description description) {
 
-		description.appendValue(expected);
+		description.appendValue(getExpected());
 	}
 
 	@Override
 	public boolean matches(Object item) {
 
-		if (isNull(expected)) {
+		boolean result = false;
 
-			if (isNull(item)) {
+		if (isNull(getExpected()) && isNull(item)) {
 
-				return true;
+			result = true;
 
-			} else {
-
-				return false;
-			}
-
-		} else {
-
-			if (isNull(item)) {
-
-				return false;
-			} else {
-
-				return expected.compareTo((BigDecimal) item) == 0;
-			}
 		}
 
+		if (isNotNull(getExpected()) && isNotNull(item)) {
+
+			result = getExpected().compareTo((BigDecimal) item) == 0;
+		}
+
+		return result;
 	}
 
 	public BigDecimal getExpected() {
