@@ -7,26 +7,26 @@ import com.github.scompo.utils.names.Named;
 
 public class Walk implements Timed, Named {
 
-	private final Collection<Position> positions;
+	private final Collection<GeographicPosition> positions;
 
 	private final Instant time;
 
 	private final String name;
 	
-	public static Walk createWalk(Collection<Position> positions, Instant time,
+	public static Walk createWalk(Collection<GeographicPosition> positions, Instant time,
 			String name) {
 
 		return new Walk(positions, time, name);
 	}
 
-	private Walk(Collection<Position> positions, Instant time, String name) {
+	private Walk(Collection<GeographicPosition> positions, Instant time, String name) {
 
 		this.positions = positions;
 		this.time = time;
 		this.name = name;
 	}
 
-	public Collection<Position> getPositions() {
+	public Collection<GeographicPosition> getPositions() {
 		return positions;
 	}
 
